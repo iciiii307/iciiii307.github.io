@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barış Teklifi</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fce4ec;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin: 20px 0;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+            margin-left: 100px;
+        }
+        .no {
+            background-color: #e74c3c;
+            color: white;
+            position: absolute;
+            transition: transform 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <img src="13af9fa0-c667-4de4-941e-48d2b6e58603.jpg" alt="Konuşma Teklifi">
+    <h2>Biraz konuşmak  ister misin?</h2>
+    <div class="buttons">
+        <button class="yes" onclick="openNewTab()">Evet</button>
+        <button class="no" id="noButton">Hayır</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById("noButton");
+
+        function moveButton() {
+            const maxX = window.innerWidth - 1000;
+            const maxY = window.innerHeight - 1000;
+            const x = Math.random() * maxX - (window.innerWidth / 4) + 175;
+            const y = Math.random() * maxY - (window.innerHeight / 4) + 175;
+            noButton.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        noButton.addEventListener("mouseover", moveButton);
+
+        function openNewTab() {
+            const newWindow = window.open("", "_blank");
+            newWindow.document.write(`
+                <html>
+                <head>
+                    <title>Mutlu Son!</title>
+                    <style>
+                        body {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            font-size: 200px;
+                            margin: 0;
+                            background-color: #ffcccb;
+                            text-align: center;
+                        }
+                        p {
+                            font-size: 30px;
+                            margin-top: 20px;
+                            font-family: Arial, sans-serif;
+                            color: #333;
+                        }
+                    </style>
+                </head>
+                <body>
+                    🙃
+                    <p>0541 859 05 07</p>
+                </body>
+                </html>
+            `);
+            newWindow.document.close();
+        }
+    </script>
+</body>
+</html>
